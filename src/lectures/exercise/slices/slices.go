@@ -18,5 +18,28 @@ import "fmt"
 
 type Part string
 
+func showLine(line []Part) {
+	for i := 0; i < len(line); i++ {
+		part := line[i]
+		fmt.Println(part)
+	}
+}
+
 func main() {
+	assemblyLine := make([]Part, 3)
+	assemblyLine[0] = "Pipe"
+	assemblyLine[1] = "Bolt"
+	assemblyLine[2] = "Sheet"
+
+	fmt.Println("3 parts:")
+	showLine(assemblyLine)
+
+	assemblyLine = append(assemblyLine, "Nut", "Washer")
+	fmt.Println("\n5 parts:")
+	showLine(assemblyLine)
+
+	assemblyLine = assemblyLine[3:]
+	fmt.Println("\nSliced 2 parts:")
+	showLine(assemblyLine)
+
 }
